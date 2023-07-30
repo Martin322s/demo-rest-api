@@ -26,6 +26,14 @@ router.get('/catalog/:id', async (req, res) => {
     res.json(furniture);
 });
 
+router.put('/catalog/:id', async (req, res) => {
+    const edittedFurniture = await appService.editFurniture(req.params.id, req.body);
+    res.json(edittedFurniture);
+});
 
+router.delete('/catalog/:id', async (req, res) => {
+    const deletedFurniture = await appService.deleteFurniture(req.params.id, req.body);
+    res.json(deletedFurniture);
+});
 
 module.exports = router;
