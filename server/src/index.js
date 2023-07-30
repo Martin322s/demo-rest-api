@@ -1,10 +1,12 @@
 const express = require('express');
 const databaseConnection = require('../config/database');
 const cors = require('cors');
+const router = require('./router');
 const app = express();
 const port = 3030;
 
 app.use(cors());
+app.use(router);
 
 databaseConnection()
     .then(() => {
